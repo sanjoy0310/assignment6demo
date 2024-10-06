@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Peddy - Pet Adoption Platform</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+  <!-- Navbar -->
+  <nav class="bg-white shadow-lg p-4 flex justify-between items-center">
+    <div class="flex justify-between items-center space-x-2 ">
+        <img src="images/logo.webp" alt=""><p class="text-2xl font-bold text-blue-500 ">Peddy</p></div>
+    <div class="hidden md:flex space-x-6">
+      <a href="#" class="text-gray-600 hover:text-blue-500">Home</a>
+      <a href="#" class="text-gray-600 hover:text-blue-500">Shop</a>
+      <a href="#" class="text-gray-600 hover:text-blue-500">Contact</a>
+    </div>
+    <div class="">
+        <img  class="max-sm:hidden block text-gray-600" src="images/Frame 4.png" alt="">
+    </div>
+    <button class="md:hidden block text-gray-600">☰</button>
+  </nav>
+
+  <!-- Banner Section -->
+  <section class="bg-white p-8 text-center">
+    <h3 class="text-xl  text-gray-800">Bringing Families Together ❤️‍🔥 </h3>
+    <h1 class="text-4xl font-bold text-gray-800">Your Path to Adoption <br> Starts Here</h1>
+    <p class="mt-4 text-gray-600">Bringing families together by connecting people with their future best friends.</p>
+    <button id="view-more" class="mt-6 bg-blue-500 text-white px-6 py-2 rounded-full">View More</button>
+    <img class="m-auto" src="images/pet.webp" alt="">
+  </section>
+  
+
+  <!-- Adopt Your Best Friend Section -->
+  <section id="adopt-section" class="p-8">
+    <h2 class="text-3xl font-bold text-gray-800">Adopt Your Best Friend</h2>
+    <div class="flex justify-center space-x-4 mb-8 max-sm:flex-col space-y-2">
+      <button id="category-dogs" class="category-btn bg-white rounded-full shadow-lg p-4 flex items-center space-x-2 max-sm:ml-3"> <img src="images/shiba 1.png" alt="">Dogs</button>
+      <button id="category-cats" class="category-btn bg-white rounded-full shadow-lg p-4 flex items-center active space-x-2"> <img src="images/cat 1.png" alt="">Cats</button>
+      <button id="category-rabbits" class="category-btn bg-white rounded-full shadow-lg p-4 flex  items-center space-x-2"><img src="images/rabbit 1.png" alt="">Rabbits</button>
+      <button id="category-birds" class="category-btn bg-white  rounded-full shadow-lg p-4 flex  items-center space-x-2"><img src="images/parrot 1.png" alt="">Birds</button>
+    </div>
+
+    <!-- Categories Buttons -->
+    <div id="categories" class="mt-6 flex space-x-4">
+      <!-- Categories will be dynamically loaded here -->
+    </div>
+
+    <!-- Pet List -->
+    <div id="pets-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
+      <!-- Pets will be dynamically loaded here -->
+    </div>
+  </section>
+
+  <footer class="bg-black text-white p-8 mt-4">
+    <div class="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+      
+      <!-- Left Section -->
+      <div>
+        <h3 class="flex  items-center space-x-2 "> 
+            <img src="images/logo.webp" alt=""> 
+            <p class="text-2xl font-bold text-teal-500"></p>Peddy
+        </h3>
+        <p class="mt-4">Location: av. Washington 165, NY CA 54003</p>
+        <p class="mt-1">Phone: +31 85 964 47 25</p>
+        <p class="mt-1">Email: info@yourdomain.com</p>
+        <p class="mt-1">Opening hours: 9:00 AM - 5:00 PM</p>
+        
+        <!-- Social Icons -->
+        <div class="flex mt-4 space-x-4">
+          <a href="#"><img src="images/Group 2.png" alt="Facebook" class="w-6 h-6"></a>
+          <a href="#"><img src="images/x-2 1.png" alt="X (Twitter)" class="w-6 h-6"></a>
+          <a href="#"><img src="images/Group 6.png" alt="YouTube" class="w-6 h-6"></a>
+          <a href="#"><img src="images/Group 7.png" alt="Instagram" class="w-6 h-6"></a>
+        </div>
+      </div>
+      
+      <!-- Center Section -->
+      <div>
+        <h4 class="text-xl font-semibold mb-4">Useful Links</h4>
+        <ul class="space-y-2">
+          <li><a href="#" class="hover:text-teal-500">Home</a></li>
+          <li><a href="#" class="hover:text-teal-500">About Us</a></li>
+          <li><a href="#" class="hover:text-teal-500">Animals</a></li>
+          <li><a href="#" class="hover:text-teal-500">Foundation</a></li>
+          <li><a href="#" class="hover:text-teal-500">Contact</a></li>
+        </ul>
+      </div>
+  
+      <!-- Right Section -->
+      <div>
+        <h4 class="text-xl font-semibold mb-4">Drop a Message</h4>
+        <form>
+          <input 
+            type="email" 
+            placeholder="Enter your email" 
+            class="w-full px-4 py-2 mb-4 bg-gray-700 text-white rounded-md focus:outline-none focus:ring-2 focus:ring-teal-500">
+          <button 
+            type="submit" 
+            class="w-full bg-teal-500 text-white px-4 py-2 rounded-md hover:bg-teal-600">
+            Subscribe
+          </button>
+        </form>
+      </div>
+      
+    </div>
+  </footer>
+  
+
+  <!-- Modal -->
+  <div id="pet-modal" class="hidden fixed inset-0 bg-gray-800 bg-opacity-75 flex justify-center items-center">
+    <div class="bg-white p-8 rounded-lg max-w-lg w-full">
+      <h3 id="pet-name" class="text-xl font-bold mb-4"></h3>
+      <p id="pet-details" class="text-gray-600"></p>
+      <button id="close-modal" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded-full">Close</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
