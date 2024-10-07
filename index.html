@@ -35,22 +35,136 @@
   <!-- Adopt Your Best Friend Section -->
   <section id="adopt-section" class="p-8">
     <h2 class="text-3xl font-bold text-gray-800">Adopt Your Best Friend</h2>
-    <div class="flex justify-center space-x-4 mb-8 max-sm:flex-col space-y-2">
+    <div class="flex justify-between space-x-4 mb-8 max-sm:flex-col space-y-2 p-4 ">
       <button id="category-dogs" class="category-btn bg-white rounded-full shadow-lg p-4 flex items-center space-x-2 max-sm:ml-3"> <img src="images/shiba 1.png" alt="">Dogs</button>
       <button id="category-cats" class="category-btn bg-white rounded-full shadow-lg p-4 flex items-center active space-x-2"> <img src="images/cat 1.png" alt="">Cats</button>
       <button id="category-rabbits" class="category-btn bg-white rounded-full shadow-lg p-4 flex  items-center space-x-2"><img src="images/rabbit 1.png" alt="">Rabbits</button>
       <button id="category-birds" class="category-btn bg-white  rounded-full shadow-lg p-4 flex  items-center space-x-2"><img src="images/parrot 1.png" alt="">Birds</button>
     </div>
-
+  </section>
     <!-- Categories Buttons -->
-    <div id="categories" class="mt-6 flex space-x-4">
-      <!-- Categories will be dynamically loaded here -->
+    <div class="container mx-auto p-6">
+      <!-- Header -->
+      <div class="flex justify-between items-center mb-6 ">
+          <h1 class="text-2xl font-bold">Best Deal For You</h1>
+          <button class="bg-teal-500 text-white px-4 py-2 rounded hover:bg-teal-600">
+              Sort by Price
+          </button>
+      </div>
     </div>
-
+    <section>
     <!-- Pet List -->
-    <div id="pets-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
-      <!-- Pets will be dynamically loaded here -->
+    <div class="  flex space-x-4 p-8 max-sm:ml-8 ">
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-2 w-4/5">
+        <!-- Card 1 -->
+        <div class="bg-white rounded-lg shadow-lg p-4 ">
+            <img src="https://i.ibb.co.com/p0w744T/pet-1.jpg" alt="Mister Tartosh" class="rounded-lg w-full h-40 object-cover">
+            <h2 class="text-xl font-bold mt-2">Sunny</h2>
+            <p>Breed: Golden Retriever</p>
+            <p>Birth: 2024</p>
+            <p>Gender: Female</p>
+            <p class="text-lg font-semibold">$199</p>
+            <div class="flex justify-between mt-4 max-sm:flex-col space-y-2">
+              <button class="px-4 py-2 bg-gray-300 text-white rounded-lg"> <img src="images/Frame 1171276315.png " alt=""></button>
+                <button class="px-4 py-2 bg-blue-500 text-white rounded-lg">Adopt</button>
+                <button class="px-4 py-2 bg-gray-300 rounded-lg">Details</button>
+            </div>
+        </div>
+  
+        <!-- Card 2 -->
+        <div class="bg-white rounded-lg shadow-lg p-4">
+            <img src="https://i.ibb.co.com/3Wzz41D/pet-2.jpg" alt="Charlie" class="rounded-lg w-full h-40 object-cover">
+            <h2 class="text-xl font-bold mt-2">Mia</h2>
+            <p>Breed: Siamese</p>
+            <p>Birth: 2022</p>
+            <p>Gender: Female</p>
+            <p class="text-lg font-semibold">$800</p>
+            <div class="flex justify-between mt-4 max-sm:flex-col space-y-2">
+              <button class="px-4 py-2 bg-gray-300 text-white rounded-lg"><img src="images/Frame 1171276315.png " alt=""></button>
+                <button class="px-4 py-2 bg-blue-500 text-white rounded-lg">Adopt</button>
+                <button class="px-4 py-2 bg-gray-300 rounded-lg">Details</button>
+            </div>
+        
+      </div>
+  
+        <!-- Card 3 -->
+        <div class="bg-white rounded-lg shadow-lg p-4">
+            <img src="https://i.ibb.co.com/s3PXSwD/pet-3.jpg" alt="Alessia Max" class="rounded-lg w-full h-40 object-cover">
+            <h2 class="text-xl font-bold mt-2">Coco</h2>
+            <p>Breed: null</p>
+            <p>Birth: 2022</p>
+            <p>Gender: Male</p>
+            <p class="text-lg font-semibold">$1500</p>
+            <div class="flex justify-between mt-4 max-sm:flex-col space-y-2">
+              <button class="px-4 py-2 bg-gray-300 text-white rounded-lg"><img src="images/Frame 1171276315.png " alt=""></button>
+                <button class="px-4 py-2 bg-blue-500 text-white rounded-lg">Adopt</button>
+                <button class="px-4 py-2 bg-gray-300 rounded-lg">Details</button>
+            </div>
+        </div>
+          <!-- Card 4 -->
+        <div class="bg-white rounded-lg shadow-lg p-4">
+          <img src="https://i.ibb.co.com/4g3Jrjf/pet-4.jpg" alt="Alessia Max" class="rounded-lg w-full h-40 object-cover">
+          <h2 class="text-xl font-bold mt-2">Nibbles</h2>
+          <p>Breed: Holland Lop</p>
+          <p>Birth: 2023</p>
+          <p>Gender: Female</p>
+          <p class="text-lg font-semibold">$200</p>
+          <div class="flex justify-between mt-4 max-sm:flex-col space-y-2">
+            <button class="px-4 py-2 bg-gray-300 text-white rounded-lg "><img src="images/Frame 1171276315.png " alt=""></button>
+              <button class="px-4 py-2 bg-blue-500 text-white rounded-lg">Adopt</button>
+              <button class="px-4 py-2 bg-gray-300 rounded-lg">Details</button>
+          </div>
+      </div>
+      <!-- Card 5 -->
+      <div class="bg-white rounded-lg shadow-lg p-4">
+        <img src="https://i.ibb.co.com/BwnvDMY/pet-5.jpg" alt="Alessia Max" class="rounded-lg w-full h-40 object-cover">
+        <h2 class="text-xl font-bold mt-2">Bella</h2>
+        <p>Breed: Bengal</p>
+        <p>Birth: null</p>
+        <p>Gender: Female</p>
+        <p class="text-lg font-semibold">$900</p>
+        <div class="flex justify-between mt-4 max-sm:flex-col space-y-2">
+          <button class="px-4 py-2 bg-gray-300 text-white rounded-lg"><img src="images/Frame 1171276315.png " alt=""></button>
+            <button class="px-4 py-2 bg-blue-500 text-white rounded-lg">Adopt</button>
+            <button class="px-4 py-2 bg-gray-300 rounded-lg">Details</button>
+        </div>
     </div>
+    <!-- Card 6 -->
+    <div class="bg-white rounded-lg shadow-lg p-4">
+      <img src="https://i.ibb.co.com/PFbWMGk/pet-6.jpg" alt="Alessia Max" class="rounded-lg w-full h-40 object-cover">
+      <h2 class="text-xl font-bold mt-2">Leo</h2>
+      <p>Breed: Bengal</p>
+      <p>Birth: 2024</p>
+      <p>Gender: Male</p>
+      <p class="text-lg font-semibold">$950</p>
+      <div class="flex justify-between mt-4 max-sm:flex-col space-y-2">
+        <button class="px-4 py-2 bg-gray-300 text-white rounded-lg"><img src="images/Frame 1171276315.png " alt=""></button>
+          <button class="px-4 py-2 bg-blue-500 text-white rounded-lg">Adopt</button>
+          <button class="px-4 py-2 bg-gray-300 rounded-lg">Details</button>
+      </div>
+  </div>
+  <div class="bg-white rounded-lg shadow-lg p-4">
+    <img src="https://i.ibb.co.com/QXbXctF/pet-7.jpg" alt="Alessia Max" class="rounded-lg w-full h-40 object-cover">
+    <h2 class="text-xl font-bold mt-2">Max</h2>
+    <p>Breed: Bengal</p>
+    <p>Birth: 2024</p>
+    <p>Gender: Male</p>
+    <p class="text-lg font-semibold">$950</p>
+    <div class="flex justify-between mt-4 max-sm:flex-col space-y-2">
+      <button class="px-4 py-2 bg-gray-300 text-white rounded-lg "><img src="images/Frame 1171276315.png " alt=""></button>
+        <button class="px-4 py-2 bg-blue-500 text-white rounded-lg">Adopt</button>
+        <button class="px-4 py-2 bg-gray-300 rounded-lg">Details</button>
+    </div>
+    </div>
+      </div>
+      <!-- Card with multiple images -->
+      
+      
+      <div class="bg-white rounded-lg shadow-lg p-4 w-1/5 max-sm:hidden">
+          
+      </div>
+    </div>
+  
   </section>
 
   <footer class="bg-black text-white p-8 mt-4">
@@ -108,14 +222,19 @@
   </footer>
   
 
-  <!-- Modal -->
-  <div id="pet-modal" class="hidden fixed inset-0 bg-gray-800 bg-opacity-75 flex justify-center items-center">
-    <div class="bg-white p-8 rounded-lg max-w-lg w-full">
-      <h3 id="pet-name" class="text-xl font-bold mb-4"></h3>
-      <p id="pet-details" class="text-gray-600"></p>
-      <button id="close-modal" class="mt-4 bg-blue-500 text-white px-4 py-2 rounded-full">Close</button>
+  <!-- error Modal -->
+  <div class="bg-white rounded-lg shadow-lg p-8 max-w-lg text-center hidden">
+    <!-- Icon -->
+    <div class="mb-6">
+        <img src="images/error.webp" alt="No Information Icon" class="mx-auto w-24 h-24">
     </div>
-  </div>
+    <!-- Heading -->
+    <h2 class="text-2xl font-bold mb-4">No Information Available</h2>
+    <!-- Description Text -->
+    <p class="text-gray-600 text-sm">
+       Sorry there are currently no Animals!
+    </p>
+</div>
 
   <script src="app.js"></script>
 </body>
