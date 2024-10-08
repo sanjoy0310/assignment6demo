@@ -1,87 +1,96 @@
-// API Endpoints
-const apiBase = 'https://openapi.programming-hero.com/api/peddy';
-const categoriesEndpoint = `${apiBase}/categories`;
-const petsEndpoint = `${apiBase}/pets`;
-
 // DOM Elements
-const categoriesContainer = document.getElementById('categories');
+const petListings = document.querySelector('.pet-listings');
+const categoriesDiv = document.getElementById('categories');
 const petsList = document.getElementById('pets-list');
-const petModal = document.getElementById('pet-modal');
-const petName = document.getElementById('pet-name');
-const petDetails = document.getElementById('pet-details');
-const closeModal = document.getElementById('close-modal');
-let allPets = [];
-
-// Fetch Categories
-async function fetchCategories() {
-  const response = await fetch(categoriesEndpoint);
-  const data = await response.json();
-  const categories = data.data;
-  displayCategories(categories);
-}
-
-// Display Categories
-function displayCategories(categories) {
-  categories.forEach(category => {
-    const button = document.createElement('button');
-    button.classList.add('bg-gray-200', 'px-4', 'py-2', 'rounded-full');
-    button.innerText = category.name;
-    button.addEventListener('click', () => fetchPetsByCategory(category.name));
-    categoriesContainer.appendChild(button);
-  });
-}
+const sortPriceButton = document.getElementById('sort-price');
 
 // Fetch All Pets
 async function fetchAllPets() {
-  const response = await fetch(petsEndpoint);
-  const data = await response.json();
-  allPets = data.data;
-  displayPets(allPets);
-}
-
-// Fetch Pets by Category
-async function fetchPetsByCategory(category) {
-  const response = await fetch(`${apiBase}/category/${category}`);
-  const data = await response.json();
-  const pets = data.data;
-  displayPets(pets);
+  try {
+    const response = await fetch('https://openapi.programming-hero.com/api/peddy/pets');
+    const data = await response.json();
+    displayPets(data.pets);
+  } catch (error) {
+    console.error("Error fetching pets:", error);
+  }
 }
 
 // Display Pets
 function displayPets(pets) {
   petsList.innerHTML = '';
-  if (pets.length === 0) {
-    petsList.innerHTML = '<p class="text-center text-gray-600">No pets available in this category.</p>';
-    return;
-  }
   pets.forEach(pet => {
-    const petCard = document.createElement('div');
-    petCard.classList.add('bg-white', 'p-4', 'rounded-lg', 'shadow-md');
-    petCard.innerHTML = `
-      <img src="${pet.image || 'placeholder.jpg'}" alt="${pet.name}" class="h-40 w-full object-cover rounded-md">
-      <h3 class="mt-2 text-lg font-bold">${pet.name || 'Unknown'}</h3>
-      <p class="text-gray-600">Breed: ${pet.breed || 'Unknown'}</p>
-      <p class="text-gray-600">Price: $${pet.price || '0'}</p>
-      <button class="bg-blue-500 text-white px-4 py-2 rounded-full mt-4">Details</button>
+    const petCard = `
+      <div class="pet-card bg-white shadow-md rounded-lg p-4">
+        <img src="${pet.image}" alt="${pet.name}" class="w-full h-32 object-cover rounded-md mb-4">
+        <h3 class="text-lg font-bold text-gray-800">${pet.name}</h3>
+        <p class="text-gray-600">${pet.age} years old</p>
+        <button onclick="fetchPetDetails(${pet.id})" class="mt-2 bg-blue-500 text-white px-4 py-2 rounded-md">View Details</button>
+      </div>
     `;
-    const detailsButton = petCard.querySelector('button');
-    detailsButton.addEventListener('click', () => showPetDetails(pet));
-    petsList.appendChild(petCard);
+    petsList.innerHTML += petCard;
   });
 }
 
-// Show Pet Details in Modal
-function showPetDetails(pet) {
-  petName.innerText = pet.name;
-  petDetails.innerText = `Breed: ${pet.breed || 'Unknown'}\nPrice: $${pet.price || '0'}\nDescription: ${pet.description || 'No description available.'}`;
-  petModal.classList.remove('hidden');
+// Fetch Pet Details by ID
+async function fetchPetDetails(petId) {
+  try {
+    const response = await fetch(`https://openapi.programming-hero.com/api/peddy/pet/${petId}`);
+    const data = await response.json();
+    displayPetDetails(data.pet);
+  } catch (error) {
+    console.error("Error fetching pet details:", error);
+  }
 }
 
-// Close Modal
-closeModal.addEventListener('click', () => {
-  petModal.classList.add('hidden');
+// Display Pet Details (Modal or Details Page)
+function displayPetDetails(pet) {
+  alert(`Name: ${pet.name}\nAge: ${pet.age}\nVaccination History: ${pet.vaccinationHistory}`);
+}
+
+// Fetch All Pet Categories
+async function fetchCategories() {
+  try {
+    const response = await fetch('https://openapi.programming-hero.com/api/peddy/categories');
+    const data = await response.json();
+    displayCategories(data.categories);
+  } catch (error) {
+    console.error("Error fetching categories:", error);
+  }
+}
+
+// Display Categories
+function displayCategories(categories) {
+  categoriesDiv.innerHTML = '';
+  categories.forEach(category => {
+    const categoryButton = `
+      <button onclick="fetchPetsByCategory('${category.name}')" class="category-button bg-gray-200 text-gray-800 px-4 py-2 rounded-full">${category.name}</button>
+    `;
+    categoriesDiv.innerHTML += categoryButton;
+  });
+}
+
+// Fetch Pets by Category
+async function fetchPetsByCategory(categoryName) {
+  try {
+    const response = await fetch(`https://openapi.programming-hero.com/api/peddy/category/${categoryName}`);
+    const data = await response.json();
+    displayPets(data.pets);
+  } catch (error) {
+    console.error(`Error fetching pets in category ${categoryName}:`, error);
+  }
+}
+
+// Sort Pets by Price
+sortPriceButton.addEventListener('click', () => {
+  const pets = Array.from(petsList.children);
+  pets.sort((a, b) => {
+    const priceA = parseFloat(a.querySelector('.pet-price').innerText.replace('$', ''));
+    const priceB = parseFloat(b.querySelector('.pet-price').innerText.replace('$', ''));
+    return priceA - priceB;
+  });
+  pets.forEach(pet => petsList.appendChild(pet));
 });
 
-// Initialize
-fetchCategories();
+// Initial Load
 fetchAllPets();
+fetchCategories();
